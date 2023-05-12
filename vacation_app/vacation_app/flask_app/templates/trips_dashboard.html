@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here are all the trips!</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Duration</th>
+            <th>Departure Date</th>
+            <th>options</th>
+        </tr>
+        {% for one_trip in all_trips %}
+        <tr>
+            <td><a href="/trips/show/{{one_trip.id}}">{{one_trip.name}}</a></td>
+            <td>{{one_trip.location}}</td>
+            <td>{{one_trip.duration}}</td>
+            <td>{{one_trip.departure_date}}</td>
+            <td>
+                <a href="/trips/edit/{{one_trip.id}}">Edit</a> |
+                <a href="/trips/delete/{{one_trip.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <ul>
+        <li><a href="/trips/new">Add a new Trip</a></li>
+        <li><a href="/users/dashboard">See all users</a></li>
+    </ul>
+
+</body>
+</html>

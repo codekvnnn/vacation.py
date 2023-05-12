@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello {{one_user.first_name}} {{one_user.last_name}}</h1>
+    <h3>Age: {{one_user.age}}</h3>
+    <h3>Email: {{one_user.email}}</h3>
+    <h3>Vacations:</h3>
+    {% for trip in one_user.vacations %}
+        <p>{{trip.name}}</p>
+    {% endfor %}
+    <a href="/users/dashboard"><button> See All Users</button></a>
+</body>
+</html>

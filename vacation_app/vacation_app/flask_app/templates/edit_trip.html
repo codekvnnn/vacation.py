@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Trip!</h1>
+    <form action="/trips/update" method="post">
+        <input type="hidden" name="id" value="{{one_trip.id}}">
+        <label>Name of trip: </label>
+        <input type="text" name="name" value="{{one_trip.name}}">
+        <label>Duration (in days): </label>
+        <input type="number" name="duration" value="{{one_trip.duration}}">
+        <label>Location: </label>
+        <input type="text" name="location" value="{{one_trip.location}}">
+        <label>Departure Date</label>
+        <input type="date" name="departure_date" value="{{one_trip.departure_date.strftime('%Y-%m-%d')}}">
+        <button>Edit Trip!</button>
+    </form>
+</body>
+</html>

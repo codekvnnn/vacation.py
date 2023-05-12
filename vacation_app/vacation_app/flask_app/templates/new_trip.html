@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add a new trip!</h1>
+    {% with messages = get_flashed_messages(category_filter=['Trips']) %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="/trips/create" method="post">
+        <label >Who's trip is this for?</label>
+        <select name="user_id" >
+            {% for one_user in all_users %}
+            <option value="{{one_user.id}}">{{one_user.first_name}} {{one_user.last_name}}</option>
+            {% endfor %}
+        </select>
+        <label>Name of trip: </label>
+        <input type="text" name="name">
+        <label>Duration (in days): </label>
+        <input type="number" name="duration">
+        <label>Location: </label>
+        <input type="text" name="location">
+        <label>Departure Date</label>
+        <input type="date" name="departure_date">
+        <button>Add new trip!</button>
+    </form>
+    <a href="/trips/dashboard">See all Trips</a>
+</body>
+</html>

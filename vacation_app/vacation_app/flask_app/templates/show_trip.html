@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Trip information</h1>
+    <h3>Name: {{one_trip.name}}</h3>
+    <h3>Location: {{one_trip.location}}</h3>
+    <h3>Duration: {{one_trip.duration}}</h3>
+    <h3>Departure Date: {{one_trip.departure_date.strftime('%m-%d-%Y')}}</h3>
+    <h3>This trip is for: {{one_trip.traveler.first_name}} {{one_trip.traveler.last_name}}</h3>
+    <a href="/trips/dashboard">See all Trips</a>
+</body>
+</html>
